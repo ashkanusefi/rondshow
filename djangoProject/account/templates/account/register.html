@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ثبت نام</title>
+</head>
+<body style="background-color: #38c1b3">
+
+
+<form dir="rtl" action="" method="post" enctype="multipart/form-data" style="margin-top: 60px;background-color: #38c1b3;font-size: 17px;text-align: right">
+    {% csrf_token %}
+    <div style="margin-right: 30%">
+        {{ form.as_p }}
+
+        <div>
+            <input type="submit" value="تایید" style="background-color: forestgreen;font-size: 22px;margin: 20px">
+        </div>
+    </div>
+
+</form>
+</body>
+</html>

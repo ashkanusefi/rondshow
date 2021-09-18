@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>ورود</title>
+    <link rel="stylesheet" type="text/css" href="{% static "barman/js/bootstrap/bootstrap.min.css" %}">
+</head>
+<body style="background-color: lightslategray;overflow-x: hidden">
+<div style="margin-top: 100px">
+
+</div>
+<form action="" method="post" class="login-form">
+    {% csrf_token %}
+    {% if error %}
+        <div class="alert alert-danger">
+            {{ error }}
+        </div>
+    {% endif %}
+    <div class="form-group row">
+        <label class="col-3" style="margin-left: 40%">
+            نام کاربری
+        </label>
+        <input style="width: 40%;margin-left: 25%" class="col-9 form-control" type="text" name="username" value="{{ username }}"/>
+    </div>
+    <div class="form-group row">
+        <label class="col-3" style="margin-left: 40%">گذرواژه</label>
+        <input style="width: 40%;margin-left: 25%" class="col-9 form-control" type="password" name="password"/>
+    </div>
+    <a href="{% url "reset_password" %}" style="color: black;margin-left: 40%">بازنشانی گذرواژه</a>
+    <div class="form form-group row justify-content-center">
+    </div>
+    <a href="{% url "register" %}" style="color: black;margin-left: 40%">ثبت نام</a>
+    <div class="form form-group row justify-content-center">
+        <div class="col-4">
+            <button style="margin-left: 40%" type="submit" class="btn btn-success w-100">
+                ورود
+            </button>
+        </div>
+    </div>
+</form>
+</body>
+</html>

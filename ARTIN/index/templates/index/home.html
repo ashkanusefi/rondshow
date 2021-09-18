@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="شرکت واسپاری تامین توسعه آرتین با شماره مجوز فعالیت به شماره 46852 مورخ 1400/2/20 در اداره مجوزهای بانکی ،بانک مرکزی به ثبت رسید">
+    <meta name="keywords" content="شرکت لیزینگ آرتین, شرکت واسپاری تامین توسعه آرتین">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title>واسپاری تأمین توسعه آرتین</title>
+
+    <!-- Favicon  -->
+    <link rel="shortcut icon" href="{% static "img/core-img/favicon.png" %}">
+
+    <!-- >>>>>>>>>>>>>>>> All CSS Files <<<<<<<<<<<<<<<< -->
+
+    <!-- Style css -->
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+
+    <!-- Responsive css -->
+    <link rel="stylesheet" href="{% static "css/responsive.css" %}">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+          integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+          crossorigin=""/>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+            integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+            crossorigin=""></script>
+
+    <!--[if IE]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+<!-- preloader start -->
+<div id="preloader">
+    <span class="cssload-loader"><span class="cssload-loader-inner"></span></span>
+</div>
+<!-- /.end preloader -->
+
+<!-- >>>>>>>>>>>>>>>> Header Start <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
+<header class="header_area">
+    <!-- Header Area Start -->
+    <div class="main_header_area animated">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-sm-2 col-xs-9">
+                    <!-- Logo Area -->
+                    <div class="logo_area">
+                        <a href="{% url "home" %}"><img src="{% static "img/core-img/logo.png" %}" alt="لوگو شرکت واسپاری تامین توسعه آرتین"></a>
+                    </div>
+                </div>
+
+                <div class="col-sm-10 col-xs-12">
+                    <!-- Menu Area Start -->
+                    <div class="main_menu_area">
+                        <div class="mainmenu">
+                            <nav>
+                                <ul id="nav">
+                                    <li class="current_page_item"><a href="#home">خانه</a></li>
+                                    <li><a href="#about">درباره ما</a></li>
+                                    <li><a href="#service">ویژگی ها</a></li>
+                                    <li><a href="#advisor">متخصصان</a></li>
+                                    <li><a href="#blog">اخبار</a></li>
+                                    <li><a href="#contact">تماس با ما</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- >>>>>>>>>>>>>>>> Header End <<<<<<<<<<<<<<<< -->
+
+<!-- >>>>>>>>>>>>>>>> Welcome Area Start <<<<<<<<<<<<<<<< -->
+
+{% if mainpics|length < 2 %}
+    {% for i in mainpics %}
+        <div class="single_slide" style="background-image: url({{ i.picture.url }});">
+            <div class="slide_text">
+                <div class="table">
+                    <div class="table_cell">
+                        <h2> {{ i.text }} <span>تسهیلات ویژه</span></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% else %}
+    <section class="welcome_area" id="home">
+        <div class="welcome_slides">
+            {% for i  in mainpics %}
+                <!-- Single Slide Start -->
+                <div class="single_slide" style="background-image: url({{ i.picture.url }});">
+                    <div class="slide_text">
+                        <div class="table">
+                            <div class="table_cell">
+                                <h2>{{ i.text }} <span>تسهیلات ویژه</span></h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+    <div class="clearfix"></div>
+{% endif %}
+
+<!-- >>>>>>>>>>>>>>>>>> Welcome Area End <<<<<<<<<<<<<<<< -->
+
+<!-- >>>>>>>>>>>>>>>>>> Special Feature Area Start <<<<<<<<<<<<<<<< -->
+<section class="special_feature_area section_padding_100">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-sm-6 col-md-3">
+                <!-- Single Feature Area Start -->
+                <div class="single_feature wow fadeInUp active" data-wow-delay=".2s">
+                    <div class="feature_img">
+                        <i class="icofont icofont-medical-sign"></i>
+                    </div>
+                    <!-- Single Feature Image Area End -->
+                    <div class="feature_text">
+                        <h4>تجهیزات پزشکی</h4>
+                        <p>اعطای تسهیلات برای خرید تجهیزات سرمایه‌ای مدرن و فوق پیشرفته مطب پزشکان، کلینیکها، بیمارستانها و موسسات پزشکی</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-md-3">
+                <!-- Single Feature Area Start -->
+                <div class="single_feature wow fadeInUp" data-wow-delay=".4s">
+                    <div class="feature_img">
+                        <i class="icofont icofont-car"></i>
+                    </div>
+                    <!-- Single Feature Image Area End -->
+                    <div class="feature_text">
+                        <h4>خودرو سواری</h4>
+                        <p>فروش لیزینگی انواع خودرو های تولیدی داخلی و خارجی با ارائه تسهیلات مالی به مشتریان توسط شرکت واسپاری تامین توسعه آرتین</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-md-3">
+                <!-- Single Feature Area Start -->
+                <div class="single_feature wow fadeInUp" data-wow-delay=".6s">
+                    <div class="feature_img">
+                        <i class="icofont icofont-building-alt"></i>
+                    </div>
+                    <!-- Single Feature Image Area End -->
+                    <div class="feature_text">
+                        <h4>املاک مسکونی و اداری</h4>
+                        <p>ارائه تسهیلات مالی در زمینه املاک مسکونی و اداری از سوی شرکت واسپاری تامین توسعه آرتین در راستای کاهش دغدغه‌های مشتریان</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-md-3">
+                <!-- Single Feature Area Start -->
+                <div class="single_feature wow fadeInUp" data-wow-delay=".8s">
+                    <div class="feature_img">
+                        <i class="icofont icofont-concrete-mixer"></i>
+                    </div>
+                    <!-- Single Feature Image Area End -->
+                    <div class="feature_text">
+                        <h4>خودرو سنگین</h4>
+                        <p>قرار دادن تسهیلات مالی در اختیار متقاضیان برای خرید ماشین‌ آلاتی مانند: انواع کامیون، کامیونت و کشنده</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- >>>>>>>>>>>>>>>> Special Feature Area End <<<<<<<<<<<<<<<< -->
+
+<!-- >>>>>>>>>>>>>>>> About Us Area Start <<<<<<<<<<<<<<<< -->
+<section class="about_area section_padding_100" id="about">
+    <div class="container">
+        <div class="about_us_area">
+            <div class="row">
+                <!-- About Us Area -->
+                <div class="col-xs-12 col-md-6">
+                    <div class="about_us_thumb wow fadeInRight" data-wow-delay="0.2s">
+                        <img src="{% static "img/bg-pattern/about-us.jpg" %}" alt="شرکت واسپاری تامین توسعه آرتی">
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-md-6 wow fadeInUp">
+                    <!-- About Us Text Start -->
+                    <div class="about_us_text text-right">
+                        <h3>درباره ما</h3>
+                        <p>لیزینگ دارای تاریخ و سابقه ای كهن و چند هزار ساله است. شاید نتوان زمان دقیق و مشخصی برای سرآغاز كاربرد عملیات اجاره در زندگی بشر یافت. ولی بر مبنای آنچه كه از متون باستانی بدست آمده است، اقوام ايلامی و سومری در حدود 2000 سال قبل از ميلاد مسيح به نوعی اجاره داری ساده زمين، گاو، آب و تجهيزات كشاورزی می پرداخته اند. تقسيم بندی دوگانه ليزينگ به عملياتی و مالی اولين بار در دوران رم باستان صورت گرفت. در قرون وسطی اجاره داری كشتيهای تجاری به عنوان يک رشته مهم در مبادلات اعتباری بين مردم مرسوم گرديد</p>
+                        <p>شرکت <b>واسپاری تامین توسعه آرتین</b> با شماره مجوز فعالیت به شماره 46852 مورخ 1400/2/20 در اداره مجوزهای بانکی ،بانک مرکزی به ثبت رسید</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- >>>>>>>>>>>>>>>> Awesome Feature Area End <<<<<<<<<<<<<<<< -->
+
+<!-- >>>>>>>>>>>>>>>> Video area end <<<<<<<<<<<<<<<< -->
+
+<!-- >>>>>>>>>>>>>>>> Why Choose Us Area Start <<<<<<<<<<<<<<<< -->
+<section class="why_choose_us_area section_padding_100_70">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <!-- Section Heading Start -->
+                <div class="section_heading">
+                    <h3>مزایای عملیات لیزینگ</h3>
+                    <br>
+                    <p>معدودی از مزایای عملیات لیزینگ به شرح ذیل است</p>
+                </div>
+                <!-- Section Heading End -->
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-5">
+                <!--  Why Choose Text Area Start  -->
+                <div class="why_choose_us_text_area">
+                    <div class="single_choose_us">
+                        <h4>غیر ربوی بودن</h4>
+                        <p>در روش اجاره اعتباری (لیزینگ) موضوع بهره مطرح نیست و موجر برای تجهیزات و یا دستگاه ها و ماشین آلاتی كه اجاره می دهد، اجاره بهای عادلانه ای را تعیین می كند</p>
+                        <div class="choose_us_icon">
+                            <i class="icofont icofont-bank"></i>
+                        </div>
+                    </div>
+                    <div class="single_choose_us">
+                        <h4>غیر وثیقه ای بودن</h4>
+                        <p>از آنجا كه شركت لیزینگ در طول مدت اجاره مالك تجهیزات و دستگاه ها باقی می ماند، در شرایط معمول از مستاجر وثیقه ای مطالبه نمی كند، مگر در موارد خاص</p>
+                        <div class="choose_us_icon">
+                            <i class="icofont icofont-law-document"></i>
+                        </div>
+                    </div>
+                    <div class="single_choose_us">
+                        <h4>آزاد كردن منابع مالی مستاجر</h4>
+                        <p>استفاده از روش اجاره اعتباری (لیزینگ) منابع مالی مستاجر را برای تامین هزینه های جاری و یا هزینه های سرمایه ای آزاد می گذارد</p>
+                        <div class="choose_us_icon">
+                            <i class="icofont icofont-abacus-alt"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--  Why Choose Image Area Start  -->
+            <div class="col-md-5 col-md-offset-2">
+                <div class="why_choose_us_image wow fadeInRight" data-wow-delay="0.2s">
+                    <img src="{% static "img/bg-pattern/why-choose-one.jpg" %}" alt="لیزینگ">
+                </div>
+            </div>
+        </div>
+
+        <div class="row second_part">
+            <!--  Why Choose Image Area Start  -->
+            <div class="col-md-5">
+                <div class="why_choose_us_image second_area wow fadeInLeft" data-wow-delay="0.4s">
+                    <img src="{% static "img/bg-pattern/why-choose-two.jpg" %}" alt="لیزینگ">
+                </div>
+            </div>
+            <!--  Why Choose Text Area Start  -->
+            <div class="col-md-5 col-md-offset-2">
+                <div class="why_choose_us_text_area second_area">
+                    <div class="single_choose_us">
+                        <h4>ایجاد اشتغال</h4>
+                        <p>لیزینگ یكی از روش های بسیار موثر در ایجاد اشتغال محسوب می شود زیرا می تواند شرایط لازم كار را برای متخصصان یا افرادی كه توانایی كار دارند اما فاقد امكانات و تجهیزات لازم هستند، فراهم كند</p>
+                        <div class="choose_us_icon">
+                            <i class="icofont icofont-businessman"></i>
+                        </div>
+                    </div>
+                    <div class="single_choose_us">
+                        <h4>ضد تورمی بودن</h4>
+                        <p>روش لیزینگ به دلیل عدم تزریق مستقیم منابع مالی به بازار و پیشگیری و بازدارندگی از ورود مستقیم منابعی كه به صورت تسهیلات واگذار می شود به بازار بورس، دارای خاصیت ضدتورمی است</p>
+                        <div class="choose_us_icon">
+                            <i class="icofont icofont-coins"></i>
+                        </div>
+                    </div>
+                    <div class="single_choose_us">
+                        <h4>جایگزینی</h4>
+                        <p>در روش لیزینگ، امكان جایگزینی دستگاه ها، ماشین آلات و وسایل نقلیه به منظور هماهنگ شدن با صنعت و تكنولوژی روز و همچنین نیاز و ضرورت بنگاه های اقتصادی برای متقاضیان فراهم می شود</p>
+                        <div class="choose_us_icon">
+                            <i class="icofont icofont-recycle-alt"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- >>>>>>>>>>>>>>>> Why Choose Us Area Start <<<<<<<<<<<<<<<< -->
+
+<!-- >>>>>>>>>>>>>>>> Service Details area start <<<<<<<<<<<<<<<< -->
+<div id="service_details_wrapper">
+    <!-- Modal-box -->
+    <div role="dialog" tabindex="-1" id="service_details" class="modal fade in">
+        <div role="document" class="modal-dialog">
+            <div class="modal-content">
+                <!-- modal Head start -->
+                <div class="modal_head">
+                    <button aria-label="Close" data-dismiss="modal" class="close" type="button"><i class="icofont icofont-close"></i></button>
+                </div>
+                <!-- modal body start -->
+                <div class="modal_body">
+                    <div class="modal-product">
+                        <!-- Service Details Content Area -->
+                        <div class="service_details_content">
+                            <!-- Service Details Thumb -->
+                            <div class="service_details_thumb">
+                                <img src="{% static "img/services-img/service-details.jpg" %}" alt="تخصص در لیزیتگ با شرکت آرتین">
+                            </div>
+                            <!-- Service Details Text Area -->
+                            <div class="single_part_content">
+                                <h3>تخصص</h3>
+                                <p>ضرورت دانش فنی و تخصص در این رشته از عملیات اعتباری نسبت به عملكرد سایر موسسات اعتباری محسوس و درخور توجه است زیرا موضوع مالكیت، اجاره و استرداد مورد اجاره در صورت عدم ایفای تعهدات از سوی مستاجر و فروش یا اجاره مجدد آن به مستاجر جدید، همچنین روش خرید و اجاره مجدد، اجاره اعتباری برون مرزی و لیزینگ به روش اهرمی، روش های پیچیده ای هستند كه یك شركت لیزینگ با تكیه بر تجارب و تخصص های خود از عهده آنها برمی آید. به علاوه روش اجاره عملیاتی نیز مستلزم آشنایی با روش های علمی و محاسباتی خاص است كه از عهده شركت های لیزینگ برمی آید. در این زمینه می توان ادعا كرد كه شركت های لیزینگ می توانند به درستی به عنوان بازوی اجرایی بانك ها، موسسات مالی و ارگان های اقتصادی دارای سرمایه، عمل كنند.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div role="dialog" tabindex="-1" id="service_details2" class="modal fade in">
+        <div role="document" class="modal-dialog">
+            <div class="modal-content">
+                <!-- modal Head start -->
+                <div class="modal_head">
+                    <button aria-label="Close" data-dismiss="modal" class="close" type="button"><i class="icofont icofont-close"></i></button>
+                </div>
+                <!-- modal body start -->
+                <div class="modal_body">
+                    <div class="modal-product">
+                        <!-- Service Details Content Area -->
+                        <div class="service_details_content">
+                            <!-- Service Details Thumb -->
+                            <div class="service_details_thumb">
+                                <img src="{% static "img/services-img/service-details1.jpg" %}" alt="سرعت عمل در لیزینگ با شرکت آرتین">
+                            </div>
+                            <!-- Service Details Text Area -->
+                            <div class="single_part_content">
+                                <h3>سرعت عمل</h3>
+                                <p>یكی از ویژگی های صنعت لیزینگ علاوه بر ضرورت صحت عملیات و دانش فنی آن، سرعت عمل در اتخاذ تصمیم براساس تحقیق و بررسی جوانب امر مبتنی بر شناخت لازم و كافی درباره رشته موردنظر است؛ به گونه ای كه ضمن لحاظ كردن حداقل ریسك ممكن، پاسخگویی به درخواست متقاضیان را در حداقل زمان، میسر كند. این ویژگی در اغلب موارد به رغم شرایط نسبتاً دشوارتر شركت های لیزینگ به ویژه از نظر نرخ سود و مزان بازپرداخت اقساط و فراهم نبودن شرایط دوران مشاركت، موجب جلب و جذب متقاضیان شده است.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div role="dialog" tabindex="-1" id="service_details3" class="modal fade in">
+        <div role="document" class="modal-dialog">
+            <div class="modal-content">
+                <!-- modal Head start -->
+                <div class="modal_head">
+                    <button aria-label="Close" data-dismiss="modal" class="close" type="button"><i class="icofont icofont-close"></i></button>
+                </div>
+                <!-- modal body start -->
+                <div class="modal_body">
+                    <div class="modal-product">
+                        <!-- Service Details Content Area -->
+                        <div class="service_details_content">
+                            <!-- Service Details Thumb -->
+                            <div class="service_details_thumb">
+                                <img src="{% static "img/services-img/service-details2.jpg" %}" alt="تمرکز فعالیت در عملیات لیزینگ در شرکت آرتین">
+                            </div>
+                            <!-- Service Details Text Area -->
+                            <div class="single_part_content">
+                                <h3>تمركز فعالیت</h3>
+                                <p>شركت های لیزینگ به دلیل ماهیت فعالیت خود و در صورت دراختیار داشتن نیروهای متخصص و كارآمد، به سازمان گسترده و پیچیده ای نیاز ندارند و امكان تمركز كردن كلیه واحدهای سازمان در یك محل وجود دارد بنابراین به تبع امكان دستیابی به نتیجه سریع تر، متقاضیان از این گونه شركت ها استقبال بیشتری خواهند كرد.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div role="dialog" tabindex="-1" id="service_details4" class="modal fade in">
+        <div role="document" class="modal-dialog">
+            <div class="modal-content">
+                <!-- modal Head start -->
+                <div class="modal_head">
+                    <button aria-label="Close" data-dismiss="modal" class="close" type="button"><i class="icofont icofont-close"></i></button>
+                </div>
+                <!-- modal body start -->
+                <div class="modal_body">
+                    <div class="modal-product">
+                        <!-- Service Details Content Area -->
+                        <div class="service_details_content">
+                            <!-- Service Details Thumb -->
+                            <div class="service_details_thumb">
+                                <img src="{% static "img/services-img/service-details3.jpg" %}" alt="انعطاف پذیری بالا در عملیات لیزینگ در شرکت آرتین">
+                            </div>
+                            <!-- Service Details Text Area -->
+                            <div class="single_part_content">
+                                <h3>انعطاف پذیری</h3>
+                                <p>یكی از ویژگی های دیگر عملیات لیزینگ، انعطاف پذیری آن است؛ به طوری كه براساس مكانیزم های خاص خود و در زمینه قراردادهای متنوع می تواند خود را با شرایط متقاضی مطابقت دهد. این خصوصیت در مورد پرداخت اقساط، تعدیل مرحله ای قرارداد و تسویه زودتر از موعد و جایگزینی مستاجر قابل ذكر و بررسی است.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div role="dialog" tabindex="-1" id="service_details5" class="modal fade in">
+        <div role="document" class="modal-dialog">
+            <div class="modal-content">
+                <!-- modal Head start -->
+                <div class="modal_head">
+                    <button aria-label="Close" data-dismiss="modal" class="close" type="button"><i class="icofont icofont-close"></i></button>
+                </div>
+                <!-- modal body start -->
+                <div class="modal_body">
+                    <div class="modal-product">
+                        <!-- Service Details Content Area -->
+                        <div class="service_details_content">
+                            <!-- Service Details Thumb -->
+                            <div class="service_details_thumb">
+                                <img src="{% static "img/services-img/service-details4.jpg" %}" alt="محدودیت های اعتباری در عملیات لیزینگ">
+                            </div>
+                            <!-- Service Details Text Area -->
+                            <div class="single_part_content">
+                                <h3>محدودیت های اعتباری</h3>
+                                <p>شركت های لیزینگ به تبع عدم پیروی از مصوبات شورای عالی بانك ها و با عنایت به پوشش قابل قبول ریسك های احتمالی، می توانند درخواست متقاضیان را از لحاظ میزان اعتبار موردنظر به نحو مطلوبی پاسخ دهند</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div role="dialog" tabindex="-1" id="service_details6" class="modal fade in">
+        <div role="document" class="modal-dialog">
+            <div class="modal-content">
+                <!-- modal Head start -->
+                <div class="modal_head">
+                    <button aria-label="Close" data-dismiss="modal" class="close" type="button"><i class="icofont icofont-close"></i></button>
+                </div>
+                <!-- modal body start -->
+                <div class="modal_body">
+                    <div class="modal-product">
+                        <!-- Service Details Content Area -->
+                        <div class="service_details_content">
+                            <!-- Service Details Thumb -->
+                            <div class="service_details_thumb">
+                                <img src="{% static "img/services-img/service-details5.jpg" %}" alt="جلوگیری از صوری بودن عملیات اعتباری">
+                            </div>
+                            <!-- Service Details Text Area -->
+                            <div class="single_part_content">
+                                <h3>جلوگیری از صوری بودن عملیات اعتباری</h3>
+                                <p>عملیات لیزینگ و نحوه عقد قرارداد و تملك شركت های لیزینگ بر موارد اجاره و نیز تحویل و تحول عینی و واقعی موارد اجاره از بروز هرگونه سوء استفاده احتمالی و صوری بودن عملیات اعتباری جلوگیری می كند</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- >>>>>>>>>>>>>>>> Service Details area End <<<<<<<<<<<<<<<< -->
+
+<!-- >>>>>>>>>>>>>>>> Our Services Area Start <<<<<<<<<<<<<<<< -->
+<section class="what_we_do_area section_padding_100_70" id="service">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <!-- Section Heading Start -->
+                <div class="section_heading">
+                    <h3>ویژگی های صنعت لیزینگ</h3>
+                    <br>
+                    <p>صنعت لیزینگ از ویژگی هایی مختص به خود برخوردار است كه عمده ترین آنها به شرح زیر است</p>
+
+                </div>
+                <!-- Section Heading End -->
+            </div>
+        </div>
+
+        <div class="row">
+
+            <!-- Single Service Area Start -->
+            <div class="col-sm-6 col-md-4">
+                <div class="single_service wow fadeInUp" data-wow-delay=".2s">
+                    <!-- Single Service image -->
+                    <div class="single_service_img">
+                        <img src="{% static "img/services-img/service-1.jpg" %}" alt="تخصص در واسپاری">
+                    </div>
+                    <!-- Single Service title -->
+                    <div class="single_service_title">
+                        <h4>تخصص</h4>
+                    </div>
+                    <!-- Single Service content -->
+                    <div class="single_service_content">
+                        <div class="table">
+                            <div class="table_cell">
+                                <p>ضرورت دانش فنی و تخصص در این رشته از عملیات اعتباری نسبت به عملكرد سایر موسسات اعتباری محسوس و درخور توجه است زیرا موضوع مالكیت، اجاره و استرداد مورد اجاره در صورت عدم ایفای تعهدات از سوی مستاجر و فروش یا اجاره مجدد آن به مستاجر جدید، همچنین روش خرید و اجاره مجدد، اجاره اعتباری برون مرزی و لیزینگ به روش اهرمی، روش های پیچیده ای هستند كه یك شركت لیزینگ با تكیه بر تجارب و تخصص های خود از عهده آنها برمی آید</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="learn_more">
+                        <a data-target="#service_details" data-toggle="modal" href="#"><h4>بیشتر</h4></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single Service Area Start -->
+            <div class="col-sm-6 col-md-4">
+                <div class="single_service wow fadeInUp" data-wow-delay=".4s">
+                    <!-- Single Service image -->
+                    <div class="single_service_img">
+                        <img src="{% static "img/services-img/service-2.jpg" %}" alt="سرعت عمل در واسپاری">
+                    </div>
+                    <!-- Single Service title -->
+                    <div class="single_service_title">
+                        <h4>سرعت عمل</h4>
+                    </div>
+                    <!-- Single Service content -->
+                    <div class="single_service_content">
+                        <div class="table">
+                            <div class="table_cell">
+                                <p>یكی از ویژگی های صنعت لیزینگ علاوه بر ضرورت صحت عملیات و دانش فنی آن، سرعت عمل در اتخاذ تصمیم براساس تحقیق و بررسی جوانب امر مبتنی بر شناخت لازم و كافی درباره رشته موردنظر است؛ به گونه ای كه ضمن لحاظ كردن حداقل ریسك ممكن، پاسخگویی به درخواست متقاضیان را در حداقل زمان، میسر كند</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="learn_more">
+                        <a data-target="#service_details2" data-toggle="modal" href="#"><h4>بیشتر</h4></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single Service Area Start -->
+            <div class="col-sm-6 col-md-4">
+                <div class="single_service wow fadeInUp" data-wow-delay=".6s">
+                    <!-- Single Service image -->
+                    <div class="single_service_img">
+                        <img src="{% static "img/services-img/service-3.jpg" %}" alt="تمركز فعالیت در شرکت واسپاری آرتین">
+                    </div>
+                    <!-- Single Service title -->
+                    <div class="single_service_title">
+                        <h4>تمركز فعالیت</h4>
+                    </div>
+                    <!-- Single Service content -->
+                    <div class="single_service_content">
+                        <div class="table">
+                            <div class="table_cell">
+                                <p>شركت های لیزینگ به دلیل ماهیت فعالیت خود و در صورت دراختیار داشتن نیروهای متخصص و كارآمد، به سازمان گسترده و پیچیده ای نیاز ندارند و امكان تمركز كردن كلیه واحدهای سازمان در یك محل وجود دارد</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="learn_more">
+                        <a data-target="#service_details3" data-toggle="modal" href="#"><h4>بیشتر</h4></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single Service Area Start -->
+            <div class="col-sm-6 col-md-4">
+                <div class="single_service wow fadeInUp" data-wow-delay=".8s">
+                    <!-- Single Service image -->
+                    <div class="single_service_img">
+                        <img src="{% static "img/services-img/service-4.jpg" %}" alt="انعطاف پذیری در واسپاری">
+                    </div>
+                    <!-- Single Service title -->
+                    <div class="single_service_title">
+                        <h4>انعطاف پذیری</h4>
+                    </div>
+                    <!-- Single Service content -->
+                    <div class="single_service_content">
+                        <div class="table">
+                            <div class="table_cell">
+                                <p>یكی از ویژگی های دیگر عملیات لیزینگ، انعطاف پذیری آن است؛ به طوری كه براساس مكانیزم های خاص خود و در زمینه قراردادهای متنوع می تواند خود را با شرایط متقاضی مطابقت دهد. </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="learn_more">
+                        <a data-target="#service_details4" data-toggle="modal" href="#"><h4>بیشتر</h4></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single Service Area Start -->
+            <div class="col-sm-6 col-md-4">
+                <div class="single_service wow fadeInUp" data-wow-delay="1s">
+                    <!-- Single Service image -->
+                    <div class="single_service_img">
+                        <img src="{% static "img/services-img/service-5.jpg" %}" alt="محدودیت های اعتباری در واسپاری">
+                    </div>
+                    <!-- Single Service title -->
+                    <div class="single_service_title">
+                        <h4>محدودیت های اعتباری</h4>
+                    </div>
+                    <!-- Single Service content -->
+                    <div class="single_service_content">
+                        <div class="table">
+                            <div class="table_cell">
+                                <p>شركت های لیزینگ به تبع عدم پیروی از مصوبات شورای عالی بانك ها و با عنایت به پوشش قابل قبول ریسك های احتمالی، می توانند درخواست متقاضیان را از لحاظ میزان اعتبار موردنظر به نحو مطلوبی پاسخ دهند</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="learn_more">
+                        <a data-target="#service_details5" data-toggle="modal" href="#"><h4>بیشتر</h4></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single Service Area Start -->
+            <div class="col-sm-6 col-md-4">
+                <div class="single_service wow fadeInUp" data-wow-delay="1.2s">
+                    <!-- Single Service image -->
+                    <div class="single_service_img">
+                        <img src="{% static "img/services-img/service-6.jpg" %}" alt="جلوگیری از صوری بودن عملیات واسپاری">
+                    </div>
+                    <!-- Single Service title -->
+                    <div class="single_service_title">
+                        <h4>جلوگیری از صوری بودن عملیات اعتباری</h4>
+                    </div>
+                    <!-- Single Service content -->
+                    <div class="single_service_content">
+                        <div class="table">
+                            <div class="table_cell">
+                                <p>عملیات لیزینگ و نحوه عقد قرارداد و تملك شركت های لیزینگ بر موارد اجاره و نیز تحویل و تحول عینی و واقعی موارد اجاره از بروز هرگونه سوء استفاده احتمالی و صوری بودن عملیات اعتباری جلوگیری می كند</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="learn_more">
+                        <a data-target="#service_details6" data-toggle="modal" href="#"><h4>بیشتر</h4></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- >>>>>>>>>>>>>>>> Our Services Area End <<<<<<<<<<<<<<<< -->
+
+<!-- >>>>>>>>>>>>>>>> Our Speciality Area Start <<<<<<<<<<<<<<<< -->
+<section class="our_speciality_area section_padding_200" data-stellar-background-ratio="0.6">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="row">
+
+                    <div class="col-xs-12">
+                        <!-- Section Heading Start -->
+                        <div class="section_heading">
+                            <h3>موضوعات مورد فعالیت </h3>
+                        </div>
+                        <!-- Section Heading End -->
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                        <div class="single_speciality">
+                            <div class="single_speciality_icon">
+                                <i class="icofont icofont-ui-check"></i>
+                            </div>
+                            <div class="single_speciality_text">
+                                <h5>تجهیزات پزشکی</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single Speciality Area Start -->
+                    <div class="col-xs-12 col-sm-4">
+                        <div class="single_speciality">
+                            <div class="single_speciality_icon">
+                                <i class="icofont icofont-ui-check"></i>
+                            </div>
+                            <div class="single_speciality_text">
+                                <h5>خودرو سواری</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single Speciality Area Start -->
+                    <div class="col-xs-12 col-sm-4">
+                        <div class="single_speciality">
+                            <div class="single_speciality_icon">
+                                <i class="icofont icofont-ui-check"></i>
+                            </div>
+                            <div class="single_speciality_text">
+                                <h5>لوازم منزل</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single Speciality Area Start -->
+                    <div class="col-xs-12 col-sm-4" style="float: right;">
+                        <div class="single_speciality">
+                            <div class="single_speciality_icon">
+                                <i class="icofont icofont-ui-check"></i>
+                            </div>
+                            <div class="single_speciality_text">
+                                <h5>املاک مسکونی و اداری</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single Speciality Area Start -->
+                    <div class="col-xs-12 col-sm-4" style="float: right;">
+                        <div class="single_speciality">
+                            <div class="single_speciality_icon">
+                                <i class="icofont icofont-ui-check"></i>
+                            </div>
+                            <div class="single_speciality_text">
+                                <h5>خودرو سنگین (کامیون، کامیونت و کشنده)</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end. container -->
+</section>
+
+<!-- >>>>>>>>>>>>>>>> Our Speciality Area End <<<<<<<<<<<<<<<< -->
+
+<!-- >>>>>>>>>>>>>>>> Works Details area start <<<<<<<<<<<<<<<< -->
+<!-- >>>>>>>>>>>>>>>> Works Details area end <<<<<<<<<<<<<<<< -->
+
+<!-- >>>>>>>>>>>>>>>> Project area start <<<<<<<<<<<<<<<< -->
+
+<!-- >>>>>>>>>>>>>>>> Project area end <<<<<<<<<<<<<<<< -->
+
+<!-- >>>>>>>>>>>>>>>> Our Advisor Area Start <<<<<<<<<<<<<<<< -->
+{% if advisors|length < 2 %}
+    <section class="our_advisor_area clearfix section_padding_100" id="advisor">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <!-- Section Heading Start -->
+                    <div class="section_heading">
+                        <p>our quality team</p>
+                        <h3>Creative Advisor</h3>
+                    </div>
+                </div>
+            </div>
+            {% for i in advisors %}
+                <div class="row">
+                    <!-- Single advisor profile area start -->
+                    <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+                        <div class="single_advisor_slide">
+                            <!-- Single advisor profile thumb -->
+                            <div class="advisor_thumb">
+                                <img src="{{ i.picture.url }}" alt="">
+                            </div>
+                            <!-- Single advisor profile details -->
+                            <div class="single_advisor_details_info">
+                                <h4>{{ i.name }}</h4>
+                                <p class="designation">{{ i.job }}</p>
+                                <div class="about_advisor">
+                                    <p>{{ i.description }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+{% else %}
+    <section class="our_advisor_area clearfix section_padding_100" id="advisor">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <!-- Section Heading Start -->
+                    <div class="section_heading">
+                        <p>our quality team</p>
+                        <h3>Creative Advisor</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <!-- Single advisor profile area start -->
+                <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+                    <div class="single_advisor_profile">
+                        {% for i in advisors %}
+                            <div class="single_advisor_slide">
+
+                                <!-- Single advisor profile thumb -->
+                                <div class="advisor_thumb">
+                                    <img src="{{ i.picture.url }}" alt="">
+                                </div>
+                                <!-- Single advisor profile details -->
+                                <div class="single_advisor_details_info">
+                                    <h4>{{ i.name }}</h4>
+                                    <p class="designation">i{{ i.job }}</p>
+                                    <div class="about_advisor">
+                                        <p>{{ i.description }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endif %}
+
+<!-- >>>>>>>>>>>>>>>> Our advisor Area End <<<<<<<<<<<<<<<< -->
+<!-- >>>>>>>>>>>>>>>> Our advisor Area End <<<<<<<<<<<<<<<< -->
+
+<!-- >>>>>>>>>>>>>>>> FAQ Area Start <<<<<<<<<<<<<<<< -->
+<section class="faq_question_area section_padding_100" data-stellar-background-ratio="0.6">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <!-- Section Heading Start -->
+                <div class="section_heading">
+                    <h3>سوالات متداول</h3>
+                </div>
+                <!-- Section Heading End -->
+            </div>
+
+            <div class="col-xs-12 col-sm-6">
+                <div class="faq_area">
+                    <div class="accordions" id="accordion" role="tablist" aria-multiselectable="true">
+                        {% for i in left_questions %}
+                            <!-- single accordian area start -->
+                            <div class="panel single-accordion">
+                                <h5>
+                                    <a role="button" class="collapsed" aria-expanded="true" aria-controls="two" data-parent="#accordion" data-toggle="collapse" href="#{{ i.id }}">{{ i.question }}
+                                        <span class="accor-open"><i class="fa fa-sort-desc" aria-hidden="true"></i></span>
+                                        <span class="accor-close"><i class="fa fa-sort-asc" aria-hidden="true"></i></span>
+                                    </a>
+                                </h5>
+                                <div id="{{ i.id }}" class="accordion-content collapse">
+                                    <p>
+                                        {{ i.answer }}
+                                    </p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-6">
+                <div class="faq_area two">
+                    <div class="accordions" id="accordiontwo" role="tablist" aria-multiselectable="true">
+                        {% for i in right_questions %}
+                            <!-- single accordian area start -->
+                            <div class="panel single-accordion">
+                                <h5>
+                                    <a role="button" class="collapsed" aria-expanded="true" aria-controls="five" data-parent="#accordiontwo" data-toggle="collapse" href="#{{ i.id }}">{{ i.question }}
+                                        <span class="accor-open"><i class="fa fa-sort-desc" aria-hidden="true"></i></span>
+                                        <span class="accor-close"><i class="fa fa-sort-asc" aria-hidden="true"></i></span>
+                                    </a>
+                                </h5>
+                                <div id="{{ i.id }}" class="accordion-content collapse">
+                                    <p>{{ i.answer }}</p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- >>>>>>>>>>>>>>>> FAQ Area End <<<<<<<<<<<<<<<< -->
+<!-- >>>>>>>>>>>>>>>> Price and Plans Area Start <<<<<<<<<<<<<<<< -->
+
+<!-- >>>>>>>>>>>>>>>> Price and Plans Area End <<<<<<<<<<<<<<<< -->
+
+<!-- >>>>>>>>>>>>>>>> Timeline Area Start <<<<<<<<<<<<<<<< -->
+
+<!-- >>>>>>>>>>>>>>>> Timeline Area End <<<<<<<<<<<<<<<< -->
+
+<!-- >>>>>>>>>>>>>>>> Testimonial Area Start <<<<<<<<<<<<<<<< -->
+
+<!-- >>>>>>>>>>>>>>>> Testimonial Area End <<<<<<<<<<<<<<<< -->
+
+<!-- >>>>>>>>>>>>>>>> Blog Area Start <<<<<<<<<<<<<<<< -->
+<section class="blog_area section_padding_100_70" id="blog">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <!-- Section Heading Start -->
+                <div class="section_heading">
+                    <h3>آخرین اخبار</h3>
+                </div>
+                <!-- Section Heading End -->
+            </div>
+        </div>
+        <div class="row">
+
+            <!-- single latest news area start -->
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="single_latest_news_area wow fadeInUp" data-wow-delay=".2s">
+                    <!-- single latest news thumb -->
+                    <div class="single_latest_news_img_area">
+                        <img src="{% static "img/news-img/blog.jpg" %}" alt="">
+                        <!-- single latest news published date -->
+                    </div>
+                    <div class="single_latest_news_text_area">
+                        <!-- single latest news title -->
+                        <div class="news_title">
+                            <a href="single.html" target="_blank"><h4>انتصاب دبیر کل جدید انجمن ملی لیزینگ ایران</h4></a>
+                        </div>
+                        <!-- single latest news excerp -->
+                        <div class="news_content">
+                            <p>اصغر زارع نژاد به عنوان دبیر کل انجمن انجمن ملی لیزینگ ایران منصوب شد. به گزارش خبرگزاری آریا ، رییس هیات مدیره انجمن ملی لیزینگ ایران اعلام کرد: نودمین جلسه هیات مدیره انجمن ملی ...</p>
+                        </div>
+                        <a href="single.html" target="_blank">ادامه خبر</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- single latest news area start -->
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="single_latest_news_area wow fadeInUp" data-wow-delay=".4s">
+                    <!-- single latest news thumb -->
+                    <div class="single_latest_news_img_area">
+                        <img src="{% static "img/news-img/blog-2.jpg" %}" alt="">
+                        <!-- single latest news published date -->
+                    </div>
+                    <div class="single_latest_news_text_area">
+                        <!-- single latest news title -->
+                        <div class="news_title">
+                            <a href="single1.html" target="_blank"><h4>ثبت معاملات خودرو در دفاتر اسناد رسمی</h4></a>
+                        </div>
+                        <!-- single latest news excerp -->
+                        <div class="news_content">
+                            <p>رئیس اتاق اصناف ایران در نامه به رؤسای اتاق‌های اصناف سراسر کشور، برگ سبز صادرشده از سوی نیروی انتظامی برای سند مالکیت خودرو را مورد تأیید قرار داد و ...</p>
+                        </div>
+                        <a href="single1.html" target="_blank">ادامه خبر</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- single latest news area start -->
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="single_latest_news_area wow fadeInUp" data-wow-delay=".6s">
+                    <!-- single latest news thumb -->
+                    <div class="single_latest_news_img_area">
+                        <img src="{% static "img/news-img/blog-3.jpg" %}" alt="">
+                        <!-- single latest news published date -->
+                    </div>
+                    <div class="single_latest_news_text_area">
+                        <!-- single latest news title -->
+                        <div class="news_title">
+                            <a href="single2.html" target="_blank"><h4>شیوه عجیب خرید اقساطی خودرو در اروپا و آمریکا</h4></a>
+                        </div>
+                        <!-- single latest news excerp -->
+                        <div class="news_content">
+                            <p>برخی از خودروسازان بزرگ جهان ۶۰ تا ۷۰ درصد خودروهای خود را به شیوه لیزینگ می‌فروشند. شیوه‌ای که سبب می‌شود مصرف‌کننده با پرداخت پول کمتری، ماشین به‌روزتری سوار شود ...</p>
+                        </div>
+                        <a href="single2.html" target="_blank">ادامه خبر</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- >>>>>>>>>>>>>>>> Blog Area End <<<<<<<<<<<<<<<< -->
+
+<!-- >>>>>>>>>>>>>>>> Message Now Area Start <<<<<<<<<<<<<<<< -->
+<section class="message_now_area section_padding_100_70" id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <!-- Message Title -->
+                <div class="message_title">
+                    <!-- Section Heading Start -->
+                    <div class="section_heading">
+                        <p>واسپاری تامین توسعه آرتین</p>
+                        <br>
+                        <h3>با ما در تماس باشید</h3>
+                    </div>
+                </div>
+                <div class="col-xs-3" dir="rtl">
+                    <p>تلفن : 46046358 – 46045889 - 021</p>
+                    <p>نمابر : 46045664 - 021</p>
+                </div>
+                <div class="col-xs-9" dir="rtl">
+                    <p>آدرس : تهران بزرگراه اشرفی اصفهانی ، بالاتر از پونک ، بلوار امام حسن مجتبی ( ع) نبش بانک پاسارگاد پلاک 27 طبقه 3 و 4</p>
+                    <p>کد پستی : 1469916468</p>
+                </div>
+                <div class="contact_from">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <!-- Message Input Area Start -->
+                        <div class="contact_input_area" dir="rtl">
+                            <div id="success_fail_info"></div>
+                            <div class="row">
+                                <!-- Single Input Area Start -->
+                                <div class="col-sm-6 col-xs-12">
+                                    <div class="form-group">
+                                        {#                                        <input type="text" class="form-control" name="name" id="name" placeholder="نام و نام خانوادگی" required>#}
+                                        {{ form.name }}
+                                    </div>
+                                </div>
+                                <!-- Single Input Area Start -->
+                                <div class="col-sm-6 col-xs-12">
+                                    <div class="form-group">
+                                        {#                                        <input type="email" class="form-control" name="email" id="email" placeholder="E-mail" required>#}
+                                        {{ form.email }}
+                                    </div>
+                                </div>
+                                <!-- Single Input Area Start -->
+                                <div class="col-sm-6 col-xs-12">
+                                    <div class="form-group">
+                                        {#                                        <input type="text" class="form-control" name="subject" id="subject" placeholder="موضوع" required>#}
+                                        {{ form.subject }}
+                                    </div>
+                                </div>
+                                <!-- Single Input Area Start -->
+                                <div class="col-sm-6 col-xs-12">
+                                    <div class="form-group">
+                                        {#                                        <input type="number" class="form-control" name="number" id="number" placeholder="شماره تماس" required>#}
+                                        {{ form.phone }}
+                                    </div>
+                                </div>
+                                <!-- Single Input Area Start -->
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        {#                                        <textarea name="message" class="form-control" id="message" cols="30" rows="10" placeholder="پیام خود را وارد کنید" required></textarea>#}
+                                        {{ form.description }}
+                                    </div>
+                                </div>
+                                <!-- Single Input Area Start -->
+                                <div class="col-xs-12">
+                                    <button type="submit" class="btn btn-default">فرستادن</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Message Input Area End -->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="map_contact_address_area">
+
+    <div class="map_area" id="mapid">
+        <script type="text/javascript">
+            var mymap = L.map('mapid').setView([35.763489, 51.337094], 17);
+            var marker = L.marker([35.763489, 51.337094]).addTo(mymap);
+            marker.bindPopup("<b>شرکت واسپاری تامین توسعه آرتین").openPopup();
+
+            L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                maxZoom: 18,
+                id: 'mapbox/streets-v11',
+                tileSize: 512,
+                zoomOffset: -1,
+                accessToken: 'pk.eyJ1IjoibWFoZGkxMzA1IiwiYSI6ImNrZW82d25kMzE4MDMyeW1xOGdyMm9sN2sifQ.fSDrmt449JwAgNsmoYgDJg'
+            }).addTo(mymap);
+        </script>
+    </div>
+</div>
+<!-- >>>>>>>>>>>>>>>> Message Now Area Start <<<<<<<<<<<<<<<< -->
+
+<!-- >>>>>>>>>>>>>>>> Footer Area Start <<<<<<<<<<<<<<<< -->
+<footer class="footer_area">
+    <!-- Bottom Footer Area Start -->
+    <div class="footer_bottom_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="social_links_area">
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="whatsapp"><i class="icofont icofont-social-whatsapp"></i></a>
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="icofont icofont-social-twitter"></i></a>
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="telegram"><i class="icofont icofont-social-telegram"></i></a>
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="linkedin"><i class="icofont icofont-social-linkedin"></i></a>
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="Youtube"><i class="icofont icofont-social-youtube-play"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="footer_bottom">
+                        <p>Made with <i class="icofont icofont-heart"></i> by <a href="#">Barman-IT</a></p>
+                    </div>
+                    <!-- Bottom Footer Copywrite Text Area End -->
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- >>>>>>>>>>>>>>>> Footer Area End <<<<<<<<<<<<<<<< -->
+
+<!-- >>>>>>>>>>>>>>>> All jQuery Plugins <<<<<<<<<<<<<<<< -->
+
+<!-- jQuery (necessary for all JavaScript plugins) -->
+<script src="{% static "js/jquery-2.2.4.min.js" %}"></script>
+
+<!-- Bootstrap js -->
+<script src="{% static "js/bootstrap.min.js" %}"></script>
+
+<!-- Owl-carousel js -->
+<script src="{% static "js/owl.carousel.min.js" %}"></script>
+
+<!-- Ajax Contact js -->
+<script src="{% static "js/ajax-contact.js" %}"></script>
+
+<!-- Meanmenu js -->
+<script src="{% static "js/meanmenu.js" %}"></script>
+
+<!-- Onepage Nav js -->
+<script src="{% static "js/jquery.nav.min.js" %}"></script>
+
+<!-- Magnific Popup js -->
+<script src="{% static "js/jquery.magnific-popup.min.js" %}"></script>
+
+<!-- Back to top js -->
+<script src="{% static "js/jquery.scrollUp.js" %}"></script>
+
+<!-- jQuery easing js -->
+<script src="{% static "js/jquery.easing.1.3.js" %}"></script>
+
+<!-- WOW js -->
+<script src="{% static "js/wow.min.js" %}"></script>
+
+<!-- parallux js -->
+<script src="{% static "js/jquery.stellar.min.js" %}"></script>
+
+<!-- Footer Reveal js -->
+<script src="{% static "js/footer-reveal.js" %}"></script>
+
+<!-- YouTube Video Player js -->
+<script src="{% static "js/YTPlayer.min.js" %}"></script>
+
+<!-- GOOGLE MAPS -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDk9KNSL1jTv4MY9Pza6w8DJkpI_nHyCnk" type="text/javascript"></script>
+
+<!-- GOOGLE ACTIVE JS -->
+<script src="{% static "js/map-active.js" %}"></script>
+
+<!-- Active js -->
+<script src="{% static "js/custom.js" %}"></script>
+
+</body>
+
+</html>

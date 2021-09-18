@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ object.title }}</title>
+</head>
+<body>
+        <div dir="rtl" style="text-align: justify">
+            <img src="{{ object.thumbnail.url }}" alt="{{ object.title }}" height="700" width="1000">
+            <h2>{{ object.title }}</h2>
+            <time>{{ object.jpublish }}</time>
+            <p>
+                {% if object.is_special %}
+                    {% if user.is_authenticated and user.is_special_user or user == object.author or user.is_superuser %}
+                        {{ object.description|safe }}
+                    {% else %}
+                        <div class="p-3 mb-2 bg-secondary text-white"><p>این مقاله ویژه است و برای مشاهده آن باید <a href="#">اشتراک ویژه</a> تهیه کنید</p></div>
+                    {% endif %} 
+                {% else %}
+                    {{ object.description|safe }}
+                {% endif %}
+            </p>
+            <div>
+                {% for cat in object.category.active %}
+
+                    <a href="{% url 'blog:category' cat.slug %}">#{{ cat.title }}</a>
+
+                {% endfor %}
+            </div>
+        </div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> پروفایل کاربر</title>
+</head>
+<body>
+<div class="row py-3" style="text-align: center;margin-top: 100px;font-size: 22px;background-color: #38c1b3">
+    <div class="col-8 item-details">
+        <div class="row px-3">
+            <div class="col-4">
+                <small class="text-muted">
+                    <i class="far-fa"></i>
+                    نام ونام خانوادگی:
+                </small>
+            </div>
+            <div class="col-8">
+                {{ profile.user.get_full_name }}
+            </div>
+            <div class="w-100 my-1"></div>
+            <div class="col-4">
+                <small class="text-muted">
+                    <i class="fas fa"></i>
+                    شماره موبایل:
+                </small>
+            </div>
+            <div class="col-8">
+                {{ profile.mobile }}
+            </div>
+            <div class="w-100 my-1"></div>
+            <div class="col-4">
+                <small class="text-muted">
+                    <i class="fas fa"></i>
+                    تاریخ تولد:
+                </small>
+                <div class="col-8">
+                    {{ profile.birth_date }}
+                </div>
+                <div class="w-100 my-1"></div>
+                <div class="col-4">
+                    <small class="text-muted">
+                        <i class="fas fa"></i>
+                        ادرس:
+                    </small>
+                </div>
+                <div class="col-10 item-text-box">
+                    {{ profile.address }}
+                </div>
+                {% if profile.profile_image %}
+                    <div class="col-10 item-text-box">
+                        <img class="img-circle" width="130" height="150" src="{{ profile.profile_image.url }}" alt="{{ profile.user.get_full_name }}">
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+<div style="margin-left: 500px">
+    <a href="{% url "changepassword" %}">
+        <button style="margin-top: 30px;background-color: #1bc466;font-size: 22px">
+            تغییر گذرواژه
+        </button>
+    </a>
+    <a href="{% url "profile_edit" %}">
+        <button style="margin-top: 30px;background-color: #1bc466;font-size: 22px">
+            ویرایش پروفایل
+        </button>
+    </a>
+</div>
+</body>
+</html>

@@ -1,0 +1,6 @@
+@font-face {
+    font-family: 'Vazir';
+    font-style: normal;
+    font-weight: bold;
+    src: local('Vazir'), url('home/static/font/Vazir.ttf') format('ttf');
+}

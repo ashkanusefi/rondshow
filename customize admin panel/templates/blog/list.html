@@ -1,0 +1,47 @@
+{% load base_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div align="center">{% category_navbar %}</div>
+    <div dir="rtl"><h1>{% title %}</h1></div>
+    {% block header %}{% endblock %}
+    {% for article in object_list %}
+    <article align="center">
+        <img src="{{ article.thumbnail.url }}" alt="{{ article.title }}" height="200" width="200">
+        <h2><a href="{% url 'blog:detail' article.slug %}">{{ article.title }}
+        {% if article.is_special %}
+            <span style="color: red">ویژه</span>
+        {% endif %} </a></h2>
+        <small>{{ article.jpublish }}</small>
+        <p>{{ article.description|striptags|truncatewords:30 }}</p>
+        <p>نوشته شده توسط:
+            <a href="{% url 'blog:author' article.author %}">{{ article.author.get_full_name }}</a>
+        </p>
+        <div>
+            {% for cat in article.category.active %}
+
+                <a href="{% url 'blog:category' cat.slug %}">#{{ cat.title }}</a>
+
+            {% endfor %}
+        </div>
+        <br>
+    </article>
+    {% endfor %}
+    <div style="text-align: center">
+        {% if page_obj.has_next %}
+            <a href="{% block next_page_url %}{% endblock %}">
+                <button class="button">صفحه بعد</button>
+            </a>
+        {% endif %}
+        {% if page_obj.has_previous %}
+            <a href="{% block previuos_page_url %}{% endblock %}">
+                <button class="button">صفحه قبل</button>
+            </a>
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+{% extends 'registration/base.html' %}
+{% load static %}
+{% block title %}لیست کاربران{% endblock %}
+{% block title-meta %}پروفایل کاربری{% endblock %}
+
+{% block main %}
+    <div class="row">
+        <div class="col-12">
+            {% if object_list %}
+                <div class="card">
+                    <!-- /.card-header -->
+                    <div class="card-body table-responsive p-0">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th>نام کاربری</th>
+                                <th>نام و نام خانوادگی</th>
+                                <th>Email</th>
+                                <th>نویسنده</th>
+                                <th>کاربر ویژه</th>
+                                <th>مدیر</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for user in object_list %}
+                                <tr>
+                                    <td>
+                                        <a href="#">{{ user.username }}</a>
+                                    </td>
+                                    <td>{{ user.get_full_name }}</td>
+                                    <td>{{ user.email }}</td>
+                                    <td>
+                                        {% if user.is_author %}
+                                            <i class="fa fa-check-circle" style="color: green"></i>
+                                        {% else %}
+                                            <i class="fa fa-minus-circle" style="color: red"></i>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if user.is_special_user %}
+                                            <i class="fa fa-check-circle" style="color: green"></i>
+                                        {% else %}
+                                            <i class="fa fa-minus-circle" style="color: red"></i>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if user.is_superuser %}
+                                            <i class="fa fa-check-circle" style="color: green"></i>
+                                        {% else %}
+                                            <i class="fa fa-minus-circle" style="color: red"></i>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+            {% else %}
+                <div class="p-3 mb-2 bg-secondary text-white"><h3>محتوایی برای نمایش وجود ندارد</h3></div>
+            {% endif %}
+            <!-- /.card -->
+        </div>
+    </div>
+{% endblock %}

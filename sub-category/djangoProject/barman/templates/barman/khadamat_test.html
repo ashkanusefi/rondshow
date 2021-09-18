@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    {% for menu in menus %}
+        {% if menu.sub_menus.exists %}
+            <li>
+                <ul>{{ menu.name }}
+                    {% for sub in menu.sub_menus.all %}
+                        <li>
+                            {% if sub.sub_menus.exists %}
+                                <ul>
+                                    {{ sub.name }}
+                                    {% for sub_sub in sub.sub_menus.all %}
+                                        <li>{{ sub_sub.name }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% else %}
+                                {{ sub.name }}
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% else %}
+            <li>{{ menu.name }}</li>
+        {% endif %}
+    {% endfor %}
+</ul>
+</body>
+</html>

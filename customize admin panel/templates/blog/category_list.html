@@ -1,0 +1,17 @@
+{% extends 'blog/list.html' %}
+
+{% block header %}
+    <br>
+    <h3 dir="rtl">دسته بندی: {{ category.title }}</h3>
+    <hr>
+{% endblock %}
+
+{% block next_page_url %}
+    {% url 'blog:category' category.slug page_obj.next_page_number %}
+{% endblock %}
+
+{% block previuos_page_url %}
+    {% url 'blog:category' category.slug page_obj.previous_page_number %}
+{% endblock %}
+
+
