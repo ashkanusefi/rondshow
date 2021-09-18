@@ -5,3 +5,5 @@ def account(request):
     return render(request, 'account.html', {})
 
 
+def app(request):
+    return render(request, 'account.html', {})
